@@ -1,0 +1,8 @@
+title: Batunii Portfolio
+description: Personal portfolio and blog
+baseurl: "" # for GitHub Pages root
+url: "https://batunii.github.io"
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
