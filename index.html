@@ -2,64 +2,166 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>batunii's portfolio</title>
+  <title>Shreyansh Soni | batunii's portfolio</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .about-main { max-width: 900px; margin: 2rem auto; padding: 1rem; }
+    .about-header { display: flex; align-items: center; gap: 2rem; }
+    .profile-pic { width: 120px; border-radius: 50%; }
+    .about-info { flex: 1; }
+    .section-card { background: #303030; border-radius: 10px; margin: 2rem 0; padding: 1.5rem; box-shadow: 0 2px 8px #eee; }
+    .skills-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .skills-icons img { width: 40px; height: 40px; }
+    .projects-list, .exp-list, .pub-list, .cert-list { margin: 0; padding: 0; list-style: none; }
+    .projects-list li, .exp-list li, .pub-list li, .cert-list li { margin-bottom: 1rem; }
+    .section-title { margin-bottom: 1rem; font-size: 1.3rem; color: #2575fc; }
+    .contact-links a { margin-right: 1rem; }
+  </style>
 </head>
 <body>
   <header>
     <nav>
       <ul>
-        <li><a href="#about">about</a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#blog">batunii's backyard</a></li>
-        <li><a href="#contact">contact</a></li>
+        <li><a href="index.html">about</a></li>
+        <li><a href="projects.html">projects</a></li>
+        <li><a href="blog/index.html">batunii's backyard</a></li>
+        <li><a href="#footer">contact</a></li>
       </ul>
     </nav>
   </header>
-  <main>
-    <section id="about" class="about">
-      <h1 class="headline">about me</h1>
-      <p>
-        <strong>Hi, I'm Batunii.</strong> I'm a passionate developer who loves building creative projects and sharing ideas. Welcome to my portfolio!
-      </p>
-    </section>
-    <section id="projects" class="projects">
-      <h2 class="headline">projects</h2>
-      <div class="project-cards">
-        <div class="card">
-          <h3>project one</h3>
-          <p>A web app for managing tasks efficiently.</p>
-          <a href="https://projectone.example.com" target="_blank">view project</a>
-        </div>
-        <div class="card">
-          <h3>project two</h3>
-          <p>An open-source library for data visualization.</p>
-          <a href="https://projecttwo.example.com" target="_blank">view project</a>
-        </div>
-        <div class="card">
-          <h3>project three</h3>
-          <p>A mobile game with unique mechanics and design.</p>
-          <a href="https://projectthree.example.com" target="_blank">view project</a>
-        </div>
+  <main class="about-main">
+    <div class="about-header">
+      <!--img src="assets/img/profile_graphic.svg" alt="Profile Graphic" class="profile-pic"-->
+      <div class="about-info">
+        <h1>Shreyansh Soni</h1>
+        <p>Software Engineer | Systems & Backend Developer</p>
+        <blockquote>
+          A systems-focused software engineer passionate about backend architecture, developer tools, and distributed computing. I thrive on building performant and reliable services with an eye for scalability and clean design.
+        </blockquote>
       </div>
-    </section>
-    <section id="blog" class="blog-preview">
-      <h2 class="headline">batunii's backyard</h2>
-      <ul>
-        {% for post in site.posts limit:3 %}
-          <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
-          </li>
-        {% endfor %}
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">skills</div>
+      <div class="skills-icons">
+        <img src="assets/img/icon_cpp.svg" alt="C++">
+        <img src="assets/img/icon_python.svg" alt="Python">
+        <img src="assets/img/icon_linux.svg" alt="Linux">
+        <img src="assets/img/icon_mysql.svg" alt="MySQL">
+        <img src="assets/img/icon_java.svg" alt="Java">
+        <img src="assets/img/icon_springboot.svg" alt="Spring Boot">
+        <img src="assets/img/icon_aws.svg" alt="AWS">
+        <img src="assets/img/icon_gcp.svg" alt="GCP">
+        <img src="assets/img/icon_nodejs.svg" alt="NodeJs">
+        <img src="assets/img/icon_react.svg" alt="React">
+        <img src="assets/img/icon_sql.svg" alt="SQL">
+        <img src="assets/img/icon_git.svg" alt="Git">
+        <img src="assets/img/icon_hadoop.svg" alt="Hadoop">
+        <img src="assets/img/icon_mongodb.svg" alt="MongoDB">
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">education</div>
+      <p><strong>Bachelor of Engineering in Electronics and Communication</strong><br>
+      Thapar Institute of Engineering and Technology, Patiala<br>
+      2018 – 2022<br>
+      CGPA: 7.61</p>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">experience</div>
+      <ul class="exp-list">
+        <li>
+          <strong>Wells Fargo, Bengaluru</strong><br>
+          <em>Software Engineer 2</em> (May 2024 – Present)
+          <ul>
+            <li>Led a team to reduce reporting time from 4 weeks to under 10 mins</li>
+            <li>Developed decorator-based caching, halving API calls</li>
+            <li>Integrated AI infra with chatbot portals</li>
+          </ul>
+          <em>Software Engineer</em> (Aug 2022 – May 2024)
+          <ul>
+            <li>Built a GenAI chatbot and automated test suite for 900+ queries</li>
+            <li>Created robust backend/frontend with Java Spring Boot & JSP</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Siemens EDA, Noida</strong><br>
+          <em>Intern</em> (Jan 2022 – Jul 2022)
+          <ul>
+            <li>Created 5 Linux distros; worked on Kunit & kernel DTS for Exynos9</li>
+            <li>Wrote unit tests for I2C serializer drivers</li>
+          </ul>
+        </li>
       </ul>
-      <a class="blog-link" href="/blog">see all blog posts &rarr;</a>
-    </section>
-    <section id="contact" class="contact">
-      <h2 class="headline">contact</h2>
-      <p>Feel free to reach out via <a href="mailto:batunii@example.com">email</a> or connect on <a href="https://github.com/batunii" target="_blank">GitHub</a>.</p>
-    </section>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">🧪 Projects</div>
+      <ul class="projects-list">
+        <li>
+          <strong>Vakya DSL (June 2025)</strong><br>
+          Interpreter in C++ for LLM prompts — structured IO framework<br>
+          <a href="https://batunii.github.io/Vakya/" target="_blank">Project Page</a>
+        </li>
+        <li>
+          <strong>Dhongi (Feb 2025)</strong><br>
+          Odd-one-out backend game using Spring Boot + MongoDB
+        </li>
+        <li>
+          <strong>Nodoist (Jan 2024)</strong><br>
+          Lambda function for syncing Notion tasks to Todoist on AWS
+        </li>
+        <li>
+          <strong>Judu (Oct 2023)</strong><br>
+          Java CLI To-Do app — lightweight, terminal-friendly
+        </li>
+        <li>
+          <strong>Search Engine (Sep 2023)</strong><br>
+          TF-IDF-based index & search engine across docs
+        </li>
+        <li>
+          <strong>Tumor Detector (Jun 2021 – Jan 2022)</strong><br>
+          Neural network + median filter to remove SAP noise & detect tumors from fMRI
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">📜 Publications</div>
+      <ul class="pub-list">
+        <li>
+          <strong>Dynamically Adaptive Switching Based Median Mean Filter</strong><br>
+          AI and Big Data Conference, 2021–2022
+        </li>
+        <li>
+          <strong>Android-Controlled Robotic Arm for Smart Cities</strong><br>
+          Towards Smart World, 2020
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">📚 Certifications</div>
+      <ul class="cert-list">
+        <li>AWS Certified Practitioner (2024)</li>
+        <li>GCP Certified Practitioner (2024)</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">📬 Contact</div>
+      <div class="contact-links">
+        <a href="mailto:sy.soni@outlook.com">sy.soni@outlook.com</a>
+        <a href="https://linkedin.com/in/batunii" target="_blank">LinkedIn</a>
+        <a href="https://github.com/batunii" target="_blank">GitHub</a>
+      </div>
+    </div>
   </main>
+  <footer id="footer" class="contact">
+    <p>&copy; 2024 Shreyansh Soni</p>
+  </footer>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
