@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>batunii's portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">about</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#blog">batunii's backyard</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="about" class="about">
+      <h1 class="headline">about me</h1>
+      <p>
+        <strong>Hi, I'm Batunii.</strong> I'm a passionate developer who loves building creative projects and sharing ideas. Welcome to my portfolio!
+      </p>
+    </section>
+    <section id="projects" class="projects">
+      <h2 class="headline">projects</h2>
+      <div class="project-cards">
+        <div class="card">
+          <h3>project one</h3>
+          <p>A web app for managing tasks efficiently.</p>
+          <a href="https://projectone.example.com" target="_blank">view project</a>
+        </div>
+        <div class="card">
+          <h3>project two</h3>
+          <p>An open-source library for data visualization.</p>
+          <a href="https://projecttwo.example.com" target="_blank">view project</a>
+        </div>
+        <div class="card">
+          <h3>project three</h3>
+          <p>A mobile game with unique mechanics and design.</p>
+          <a href="https://projectthree.example.com" target="_blank">view project</a>
+        </div>
+      </div>
+    </section>
+    <section id="blog" class="blog-preview">
+      <h2 class="headline">batunii's backyard</h2>
+      <ul>
+        {% for post in site.posts limit:3 %}
+          <li>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+      <a class="blog-link" href="/blog">see all blog posts &rarr;</a>
+    </section>
+    <section id="contact" class="contact">
+      <h2 class="headline">contact</h2>
+      <p>Feel free to reach out via <a href="mailto:batunii@example.com">email</a> or connect on <a href="https://github.com/batunii" target="_blank">GitHub</a>.</p>
+    </section>
+  </main>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
