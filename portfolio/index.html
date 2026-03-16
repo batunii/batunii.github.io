@@ -5,30 +5,80 @@ title: portfolio
 
 <div class="container portfolio-page">
   <h2>portfolio</h2>
-  <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.875rem;">a selection of things i've built.</p>
+  <p class="portfolio-sub">things i've built.</p>
 
   <div class="portfolio-grid">
-    {% for item in site.portfolio %}
-    <article class="portfolio-card">
-      {% if item.image %}
-        <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" class="card-thumb">
-      {% else %}
-        <div class="card-thumb">[ {{ item.title | downcase }} ]</div>
-      {% endif %}
-      <div class="card-body">
-        <div class="card-tags">
-          {% for tag in item.tags %}
-            <span class="tag">{{ tag }}</span>
-          {% endfor %}
+
+    {% for post in site.posts %}
+      {% if post.type == 'project' or post.type == 'both' %}
+      <article class="portfolio-card">
+        {% if post.youtube %}
+        <div class="card-thumb-wrap">
+          <img class="card-thumb-img"
+               src="https://img.youtube.com/vi/{{ post.youtube }}/maxresdefault.jpg"
+               alt="{{ post.title }}"
+               onerror="this.src='https://img.youtube.com/vi/{{ post.youtube }}/hqdefault.jpg'">
+          <button class="card-play-btn" data-id="{{ post.youtube }}" title="play demo">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
         </div>
-        <a class="card-title" href="{{ item.url | relative_url }}">{{ item.title | downcase }}</a>
-        <p class="card-desc">{{ item.description }}</p>
-      </div>
-      <div class="card-footer">
-        {% if item.github %}<a href="{{ item.github }}">↗ source</a>{% endif %}
-        {% if item.demo %}<a href="{{ item.demo }}">↗ demo</a>{% endif %}
-      </div>
-    </article>
+        {% elsif post.thumbnail %}
+        <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" class="card-thumb-img">
+        {% else %}
+        <div class="card-thumb-placeholder">[ {{ post.title | downcase }} ]</div>
+        {% endif %}
+
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-project">blog + project</span>
+            {% for tag in post.tags limit:3 %}<span class="tag">{{ tag }}</span>{% endfor %}
+          </div>
+          <a class="card-title" href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a>
+          <p class="card-desc">{{ post.description | default: post.excerpt | strip_html | truncate: 120 }}</p>
+        </div>
+
+        <div class="card-footer">
+          {% if post.github %}<a href="{{ post.github }}">↗ source</a>{% endif %}
+          {% if post.demo %}<a href="{{ post.demo }}">↗ demo</a>{% endif %}
+          <a href="{{ post.url | relative_url }}" class="cf-readmore">read writeup →</a>
+        </div>
+      </article>
+      {% endif %}
     {% endfor %}
+
+    {% for project in site.projects %}
+      <article class="portfolio-card">
+        {% if project.youtube %}
+        <div class="card-thumb-wrap">
+          <img class="card-thumb-img"
+               src="https://img.youtube.com/vi/{{ project.youtube }}/maxresdefault.jpg"
+               alt="{{ project.title }}"
+               onerror="this.src='https://img.youtube.com/vi/{{ project.youtube }}/hqdefault.jpg'">
+          <button class="card-play-btn" data-id="{{ project.youtube }}" title="play demo">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+        {% elsif project.thumbnail %}
+        <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" class="card-thumb-img">
+        {% else %}
+        <div class="card-thumb-placeholder">[ {{ project.title | downcase }} ]</div>
+        {% endif %}
+
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-standalone">project</span>
+            {% for tag in project.tags limit:3 %}<span class="tag">{{ tag }}</span>{% endfor %}
+          </div>
+          <a class="card-title" href="{{ project.url | relative_url }}">{{ project.title | downcase }}</a>
+          <p class="card-desc">{{ project.description }}</p>
+        </div>
+
+        <div class="card-footer">
+          {% if project.github %}<a href="{{ project.github }}">↗ source</a>{% endif %}
+          {% if project.demo %}<a href="{{ project.demo }}">↗ demo</a>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+
   </div>
 </div>

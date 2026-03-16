@@ -48,33 +48,75 @@
 
   <main><div class="container portfolio-page">
   <h2>portfolio</h2>
-  <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.875rem;">a selection of things i've built.</p>
+  <p class="portfolio-sub">things i've built.</p>
 
   <div class="portfolio-grid">
+
     
-    <article class="portfolio-card">
       
-        <img src="" alt="Real-time NPR renderer" class="card-thumb">
+    
       
-      <div class="card-body">
-        <div class="card-tags">
+      <article class="portfolio-card">
+        
+        <div class="card-thumb-wrap">
+          <img class="card-thumb-img"
+               src="https://img.youtube.com/vi/qLFXAQ3URxs/maxresdefault.jpg"
+               alt="Dungeon Masters"
+               onerror="this.src='https://img.youtube.com/vi/qLFXAQ3URxs/hqdefault.jpg'">
+          <button class="card-play-btn" data-id="qLFXAQ3URxs" title="play demo">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+        
+
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-project">blog + project</span>
+            <span class="tag">unreal</span><span class="tag">cpp</span><span class="tag">gamedev</span>
+          </div>
+          <a class="card-title" href="/blog/2025/12/01/dungeon-masters/">dungeon masters</a>
+          <p class="card-desc">a full dungeon runner game built in unreal engine 5 with procedural level generation.</p>
+        </div>
+
+        <div class="card-footer">
+          <a href="#">↗ source</a>
           
-            <span class="tag">graphics</span>
-          
-            <span class="tag">opengl</span>
-          
-            <span class="tag">cpp</span>
+          <a href="/blog/2025/12/01/dungeon-masters/" class="cf-readmore">read writeup →</a>
+        </div>
+      </article>
+      
+    
+
+    
+      <article class="portfolio-card">
+        
+        <div class="card-thumb-wrap">
+          <img class="card-thumb-img"
+               src="https://img.youtube.com/vi//maxresdefault.jpg"
+               alt="Vakya DSL"
+               onerror="this.src='https://img.youtube.com/vi//hqdefault.jpg'">
+          <button class="card-play-btn" data-id="" title="play demo">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+        
+
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-standalone">project</span>
+            <span class="tag">cpp</span><span class="tag">interpreters</span><span class="tag">llm</span>
+          </div>
+          <a class="card-title" href="/projects/sample-vakya-dsl/">vakya dsl</a>
+          <p class="card-desc">an interpreter in c++ for llms to standardize input and output formats.</p>
+        </div>
+
+        <div class="card-footer">
+          <a href="#">↗ source</a>
           
         </div>
-        <a class="card-title" href="/portfolio/npr-renderer/">real-time npr renderer</a>
-        <p class="card-desc">A non-photorealistic renderer built in OpenGL featuring cel shading, outline detection, and hatching.</p>
-      </div>
-      <div class="card-footer">
-        <a href="#">↗ source</a>
-        <a href="#">↗ demo</a>
-      </div>
-    </article>
+      </article>
     
+
   </div>
 </div>
 </main>
@@ -82,9 +124,9 @@
   <div class="container footer-inner">
     <p class="footer-copy">made with <span>♥</span> by batunii — 2026</p>
     <nav class="footer-links">
-      <a href="#">github</a>
-      <a href="#">linkedin</a>
-      <a href="mailto:hello@example.com">email</a>
+      <a href="https://github.com/batunii">github</a>
+      <a href="https://linkedin.com/in/batunii">linkedin</a>
+      <a href="mailto:sy.soni.edu@gmail.com">email</a>
     </nav>
   </div>
 </footer>

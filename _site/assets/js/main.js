@@ -3,22 +3,16 @@
   const toggle = document.getElementById('nav-toggle');
   const links  = document.getElementById('nav-links');
   if (!toggle || !links) return;
-
   toggle.addEventListener('click', () => {
     const open = links.classList.toggle('open');
     toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open);
   });
-
-  // close menu when a link is clicked
-  links.querySelectorAll('a').forEach(a => {
+  links.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => {
       links.classList.remove('open');
       toggle.classList.remove('open');
-    });
-  });
-
-  // close on outside click
+    })
+  );
   document.addEventListener('click', e => {
     if (!toggle.contains(e.target) && !links.contains(e.target)) {
       links.classList.remove('open');
@@ -27,33 +21,62 @@
   });
 })();
 
-// ── video modal ───────────────────────────────────────────────────────────
+// ── inline video player — replaces thumbnail in place ────────────────────
 (function () {
-  const modal   = document.getElementById('video-modal');
-  if (!modal) return;
-  const iframe  = document.getElementById('modal-iframe');
-  const closeBtn = modal.querySelector('.modal-close');
-  const backdrop = modal.querySelector('.modal-backdrop');
-
-  function openModal(id) {
-    iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+  function embedVideo(container, videoId) {
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    iframe.frameBorder = '0';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+    // clear thumb, drop iframe in
+    container.innerHTML = '';
+    container.appendChild(iframe);
   }
 
-  function closeModal() {
-    iframe.src = '';
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-  }
+  // ── homepage / blog video grid ──────────────────────────────────────
+  // clicking the thumb area swaps it for an iframe
+  document.querySelectorAll('.video-card .video-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const id = thumb.closest('.video-card').dataset.id;
+      if (id) embedVideo(thumb, id);
+    });
+  });
 
-  document.querySelectorAll('.video-card').forEach(c =>
-    c.addEventListener('click', () => openModal(c.dataset.id))
-  );
+  // ── portfolio card play button ──────────────────────────────────────
+  // small circle btn — swaps the card-thumb-wrap for an iframe
+  document.querySelectorAll('.card-play-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      e.preventDefault();
+      const wrap = btn.closest('.card-thumb-wrap');
+      if (wrap) embedVideo(wrap, btn.dataset.id);
+    });
+  });
 
-  closeBtn.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  // ── post / project page inline embed ───────────────────────────────
+  // clicking the big thumbnail on the post page plays in place
+  document.querySelectorAll('.post-video-embed').forEach(embed => {
+    embed.addEventListener('click', () => {
+      const thumb = embed.querySelector('.pve-thumb');
+      if (thumb) embedVideo(thumb, embed.dataset.id);
+    });
+  });
+
+  // ── project banner "▶ watch demo" button ───────────────────────────
+  // scrolls to the embed on the page and plays it
+  document.querySelectorAll('.pb-play').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const embed = document.querySelector('.post-video-embed');
+      if (embed) {
+        embed.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const thumb = embed.querySelector('.pve-thumb');
+        if (thumb) embedVideo(thumb, btn.dataset.id);
+      }
+    });
+  });
+
 })();
 
 // ── blog tag filter ───────────────────────────────────────────────────────
@@ -61,7 +84,6 @@
   const tabs  = document.querySelectorAll('.tag-tab');
   const posts = document.querySelectorAll('.post-item');
   if (!tabs.length) return;
-
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));

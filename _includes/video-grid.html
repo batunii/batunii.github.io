@@ -1,0 +1,56 @@
+{% assign post_vids    = site.posts    | where_exp: "p", "p.youtube != nil and p.youtube != ''" %}
+{% assign project_vids = site.projects | where_exp: "p", "p.youtube != nil and p.youtube != ''" %}
+{% assign data_vids    = site.data.videos %}
+
+{% for video in post_vids limit:3 %}
+<div class="video-card" data-id="{{ video.youtube }}">
+  <div class="video-thumb">
+    <img src="https://img.youtube.com/vi/{{ video.youtube }}/maxresdefault.jpg"
+         alt="{{ video.title }}" loading="lazy"
+         onerror="this.src='https://img.youtube.com/vi/{{ video.youtube }}/hqdefault.jpg'">
+    <div class="play-overlay">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+  </div>
+  <div class="video-meta">
+    <a class="video-title-link" href="{{ video.url | relative_url }}">{{ video.title | downcase }}</a>
+    <p class="video-desc">{{ video.description | default: video.excerpt | strip_html | truncate: 80 }}</p>
+  </div>
+</div>
+{% endfor %}
+
+{% for video in project_vids limit:3 %}
+<div class="video-card" data-id="{{ video.youtube }}">
+  <div class="video-thumb">
+    <img src="https://img.youtube.com/vi/{{ video.youtube }}/maxresdefault.jpg"
+         alt="{{ video.title }}" loading="lazy"
+         onerror="this.src='https://img.youtube.com/vi/{{ video.youtube }}/hqdefault.jpg'">
+    <div class="play-overlay">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+  </div>
+  <div class="video-meta">
+    <a class="video-title-link" href="{{ video.url | relative_url }}">{{ video.title | downcase }}</a>
+    <p class="video-desc">{{ video.description }}</p>
+  </div>
+</div>
+{% endfor %}
+
+{% if data_vids %}
+{% for video in data_vids limit:3 %}
+<div class="video-card" data-id="{{ video.id }}">
+  <div class="video-thumb">
+    <img src="https://img.youtube.com/vi/{{ video.id }}/maxresdefault.jpg"
+         alt="{{ video.title }}" loading="lazy"
+         onerror="this.src='https://img.youtube.com/vi/{{ video.id }}/hqdefault.jpg'">
+    <div class="play-overlay">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+  </div>
+  <div class="video-meta">
+    <p class="video-title">{{ video.title }}</p>
+    <p class="video-desc">{{ video.description }}</p>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
