@@ -578,8 +578,12 @@ blockquote {
   }
 }
 .home-section-header .home-section-label {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  color: #c9c0d3;
+  border: 1px solid #3f3c4e;
   font-family: "JetBrains Mono", "Iosevka", "Fira Code", monospace;
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: lowercase;
   letter-spacing: 0.1em;
   color: #9e94ae;
@@ -676,12 +680,8 @@ blockquote {
   align-items: center;
   gap: 1.5rem;
   padding: 1.25rem 0;
-  border-bottom: 1px solid #3f3c4e;
   text-decoration: none;
   transition: background 0.2s ease;
-}
-.recent-post-item:first-child {
-  border-top: 1px solid #3f3c4e;
 }
 .recent-post-item:hover .rp-title {
   color: #ff8c82;
@@ -696,7 +696,7 @@ blockquote {
 .recent-post-item .rp-date {
   font-family: "JetBrains Mono", "Iosevka", "Fira Code", monospace;
   font-size: 0.875rem;
-  color: #9e94ae;
+  color: rgb(230, 140, 130);
   text-transform: lowercase;
 }
 @media (max-width: 768px) {

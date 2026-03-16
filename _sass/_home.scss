@@ -166,8 +166,12 @@
   @media (max-width: 768px) { margin-bottom: $sp-6; }
 
   .home-section-label {
+    padding: $sp-2;
+    margin-left: $sp-2;
+    color: $text-secondary;
+    border: 1px solid $border;
     font-family: $font-mono;
-    font-size: $size-xs;
+    font-size: $size-sm;
     text-transform: lowercase;
     letter-spacing: 0.10em;
     color: $text-muted;
@@ -247,11 +251,11 @@
   align-items: center;
   gap: $sp-6;
   padding: $sp-5 0;
-  border-bottom: 1px solid $border;
+ // border-bottom: 1px solid $border;
   text-decoration: none;
   transition: background $transition;
 
-  &:first-child { border-top: 1px solid $border; }
+ // &:first-child { border-top: 1px solid $border; }
   &:hover .rp-title { color: $accent-red; }
 
   @media (max-width: 600px) {
@@ -263,7 +267,7 @@
   .rp-date {
     font-family: $font-mono;
     font-size: $size-xs;
-    color: $text-muted;
+    color: $accent-red-muted;
     text-transform: lowercase;
 
     @media (max-width: 768px) { font-size: $size-xs-m; }
