@@ -128,42 +128,42 @@ title: home
       <a href="{{ '/portfolio' | relative_url }}" class="home-section-more">all projects →</a>
     </div>
 
-    {% assign post_vids    = site.posts    | where_exp: "p", "p.youtube != nil and p.youtube != ''" %}
-    {% assign project_vids = site.projects | where_exp: "p", "p.youtube != nil and p.youtube != ''" %}
-
     <div class="video-grid">
-
-      {% for video in post_vids limit:6 %}
-      <div class="video-card" data-id="{{ video.youtube }}">
-        <div class="video-thumb">
-          <img src="https://img.youtube.com/vi/{{ video.youtube }}/maxresdefault.jpg"
-               alt="{{ video.title }}" loading="lazy"
-               onerror="this.src='https://img.youtube.com/vi/{{ video.youtube }}/hqdefault.jpg'">
-          <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      {% for post in site.posts limit:6 %}
+        {% if post.youtube %}
+        <div class="video-card" data-id="{{ post.youtube }}">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/{{ post.youtube }}/maxresdefault.jpg"
+                 alt="{{ post.title }}" loading="lazy"
+                 onerror="this.src='https://img.youtube.com/vi/{{ post.youtube }}/hqdefault.jpg'">
+            <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="video-meta">
+            <a class="video-title-link" href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a>
+            <p class="video-desc">{{ post.description | default: post.excerpt | strip_html | truncate: 80 }}</p>
+          </div>
         </div>
-        <div class="video-meta">
-          <a class="video-title-link" href="{{ video.url | relative_url }}">{{ video.title | downcase }}</a>
-          <p class="video-desc">{{ video.description | default: video.excerpt | strip_html | truncate: 80 }}</p>
-        </div>
-      </div>
+        {% endif %}
       {% endfor %}
 
-      {% for video in project_vids limit:6 %}
-      <div class="video-card" data-id="{{ video.youtube }}">
-        <div class="video-thumb">
-          <img src="https://img.youtube.com/vi/{{ video.youtube }}/maxresdefault.jpg"
-               alt="{{ video.title }}" loading="lazy"
-               onerror="this.src='https://img.youtube.com/vi/{{ video.youtube }}/hqdefault.jpg'">
-          <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      {% for project in site.projects limit:6 %}
+        {% if project.youtube %}
+        <div class="video-card" data-id="{{ project.youtube }}">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/{{ project.youtube }}/maxresdefault.jpg"
+                 alt="{{ project.title }}" loading="lazy"
+                 onerror="this.src='https://img.youtube.com/vi/{{ project.youtube }}/hqdefault.jpg'">
+            <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="video-meta">
+            <a class="video-title-link" href="{{ project.url | relative_url }}">{{ project.title | downcase }}</a>
+            <p class="video-desc">{{ project.description }}</p>
+          </div>
         </div>
-        <div class="video-meta">
-          <a class="video-title-link" href="{{ video.url | relative_url }}">{{ video.title | downcase }}</a>
-          <p class="video-desc">{{ video.description }}</p>
-        </div>
-      </div>
+        {% endif %}
       {% endfor %}
-
     </div>
+
   </section>
 
 </div>
