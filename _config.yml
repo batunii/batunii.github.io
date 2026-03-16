@@ -43,3 +43,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+
+theme: null
+remote_theme: ""
