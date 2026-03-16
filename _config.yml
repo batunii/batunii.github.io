@@ -6,17 +6,14 @@ baseurl: ""
 
 author:
   name: batunii
-  github: "#"
-  linkedin: "#"
-  twitter: "#"
-  email: "hello@example.com"
+  github: "https://github.com/batunii"
+  linkedin: "https://linkedin.com/in/batunii"
+  email: "sy.soni.edu@gmail.com"
 
-# Build
 markdown: kramdown
 highlighter: rouge
 permalink: /blog/:year/:month/:day/:title/
 
-# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -25,11 +22,10 @@ plugins:
 paginate: 6
 paginate_path: "/blog/page:num/"
 
-# Collections
 collections:
-  portfolio:
+  projects:
     output: true
-    permalink: /portfolio/:name/
+    permalink: /projects/:name/
 
 defaults:
   - scope:
@@ -39,12 +35,11 @@ defaults:
       layout: post
   - scope:
       path: ""
-      type: portfolio
+      type: projects
     values:
-      layout: portfolio_item
+      layout: project
 
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules
   - README.md

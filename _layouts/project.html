@@ -2,11 +2,10 @@
 layout: default
 ---
 <div class="container">
-  <article class="post-single {% if page.type == 'project' or page.type == 'both' %}post-is-project{% endif %}">
+  <article class="post-single post-is-project">
 
-    {% if page.type == 'project' or page.type == 'both' %}
     <div class="project-banner">
-      <span class="pb-label">project writeup</span>
+      <span class="pb-label">project</span>
       <div class="pb-links">
         {% if page.github %}<a href="{{ page.github }}" class="pb-link">↗ source</a>{% endif %}
         {% if page.demo %}<a href="{{ page.demo }}" class="pb-link">↗ demo</a>{% endif %}
@@ -16,10 +15,8 @@ layout: default
         <a href="{{ '/portfolio' | relative_url }}" class="pb-link">← all projects</a>
       </div>
     </div>
-    {% endif %}
 
     {% if page.youtube %}
-    {% if page.type == 'project' or page.type == 'both' %}
     <div class="post-video-embed" data-id="{{ page.youtube }}">
       <div class="pve-thumb">
         <img src="https://img.youtube.com/vi/{{ page.youtube }}/maxresdefault.jpg"
@@ -31,27 +28,27 @@ layout: default
       </div>
     </div>
     {% endif %}
-    {% endif %}
 
     <header class="post-header">
       <div class="post-header-tags">
-        {% if page.type == 'project' or page.type == 'both' %}
-          <span class="tag tag-project">project</span>
-        {% endif %}
+        <span class="tag tag-project">project</span>
         {% for tag in page.tags %}
-          <a href="{{ '/blog' | relative_url }}#{{ tag }}" class="tag">{{ tag }}</a>
+          <span class="tag">{{ tag }}</span>
         {% endfor %}
       </div>
       <h1>{{ page.title | downcase }}</h1>
       <p class="post-meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-        · {{ content | number_of_words }} words
+        {{ page.date | date: "%B %Y" }}
         {% if page.stack %} · <span class="post-stack">{{ page.stack }}</span>{% endif %}
       </p>
     </header>
 
     <div class="post-body">
-      {{ content }}
+      {% if content and content != '' %}
+        {{ content }}
+      {% else %}
+        <p>{{ page.description }}</p>
+      {% endif %}
     </div>
 
   </article>

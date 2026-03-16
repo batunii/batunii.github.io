@@ -11,9 +11,10 @@ body {
   font-size: $size-base;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+
+  @media (max-width: 768px) { font-size: $size-base-m; }
 }
 
-// ── headings — always lowercase ───────────────────────────────────────────
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-mono;
   font-weight: 500;
@@ -23,12 +24,28 @@ h1, h2, h3, h4, h5, h6 {
   color: $text-primary;
 }
 
-h1 { font-size: $size-3xl; }
-h2 { font-size: $size-2xl; }
-h3 { font-size: $size-xl; }
-h4 { font-size: $size-lg; }
+h1 {
+  font-size: $size-3xl;
+  @media (max-width: 768px) { font-size: $size-3xl-m; }
+}
+h2 {
+  font-size: $size-2xl;
+  @media (max-width: 768px) { font-size: $size-2xl-m; }
+}
+h3 {
+  font-size: $size-xl;
+  @media (max-width: 768px) { font-size: $size-xl-m; }
+}
+h4 {
+  font-size: $size-lg;
+  @media (max-width: 768px) { font-size: $size-lg-m; }
+}
 
-p { color: $text-secondary; margin-bottom: $sp-4; }
+p {
+  color: $text-secondary;
+  margin-bottom: $sp-4;
+  @media (max-width: 768px) { font-size: $size-base-m; }
+}
 
 a {
   color: $accent-red;
@@ -37,12 +54,10 @@ a {
   &:hover { color: lighten($accent-red, 10%); }
 }
 
-code, pre {
-  font-family: $font-mono;
-  font-size: $size-sm;
-}
+code, pre { font-family: $font-mono; }
 
 pre {
+  font-size: $size-sm;
   background: $bg-card;
   border: 1px solid $border;
   border-left: 3px solid $accent-red;
@@ -50,33 +65,32 @@ pre {
   border-radius: $radius;
   overflow-x: auto;
   margin-bottom: $sp-6;
+
+  @media (max-width: 768px) {
+    font-size: $size-sm-m;
+    padding: $sp-3 $sp-4;
+  }
 }
 
 code {
+  font-size: $size-sm;
   background: $bg-card;
   border: 1px solid $border;
   padding: 0.1em 0.4em;
   border-radius: $radius;
   color: $accent-red;
+
+  @media (max-width: 768px) { font-size: $size-sm-m; }
 }
 
-pre code {
-  background: none;
-  border: none;
-  padding: 0;
-  color: $text-primary;
-}
+pre code { background: none; border: none; padding: 0; color: $text-primary; }
 
 img { max-width: 100%; height: auto; display: block; }
 
 ul, ol { padding-left: $sp-6; color: $text-secondary; }
 li { margin-bottom: $sp-2; }
 
-hr {
-  border: none;
-  border-top: 1px solid $border;
-  margin: $sp-8 0;
-}
+hr { border: none; border-top: 1px solid $border; margin: $sp-8 0; }
 
 blockquote {
   border-left: 3px solid $accent-pur-light;
@@ -88,11 +102,14 @@ blockquote {
   border-radius: 0 $radius $radius 0;
 }
 
-// ── utility ───────────────────────────────────────────────────────────────
+// ── utilities ─────────────────────────────────────────────────────────────
 .container {
   max-width: $max-width;
   margin: 0 auto;
-  padding: 0 $sp-6;
+  padding: 0 $sp-8;
+
+  @media (max-width: 768px) { padding: 0 $sp-6; }
+  @media (max-width: 480px) { padding: 0 $sp-4; }
 }
 
 .tag {
@@ -106,10 +123,10 @@ blockquote {
   color: $text-primary;
   border: 1px solid $accent-pur-light;
   transition: background $transition, color $transition;
-  &:hover {
-    background: $accent-pur-light;
-    color: $bg;
-  }
+
+  &:hover { background: $accent-pur-light; color: $bg; }
+
+  @media (max-width: 768px) { font-size: $size-xs-m; }
 }
 
 .btn {
@@ -124,13 +141,14 @@ blockquote {
   background: transparent;
   cursor: pointer;
   transition: all $transition;
-  &:hover {
-    background: $accent-red;
-    color: $bg;
-  }
+
+  &:hover { background: $accent-red; color: $bg; }
+
   &.btn-filled {
     background: $accent-red;
     color: $bg;
     &:hover { background: lighten($accent-red, 8%); }
   }
+
+  @media (max-width: 768px) { font-size: $size-sm-m; padding: $sp-2 $sp-4; }
 }

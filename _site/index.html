@@ -31,11 +31,17 @@
   <nav class="site-nav">
   <div class="container nav-inner">
     <a class="nav-logo" href="/">bat<span>.</span>unii</a>
-    <ul class="nav-links">
+
+    <!-- hamburger button (mobile only) -->
+    <button class="nav-toggle" id="nav-toggle" aria-label="toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
       <li><a href="/" class="active">home</a></li>
-      <li><a href="/about" >about me</a></li>
       <li><a href="/portfolio" >portfolio</a></li>
       <li><a href="/blog" >blog</a></li>
+      <li><a href="/about" >about</a></li>
     </ul>
   </div>
 </nav>
@@ -97,7 +103,7 @@
     <div class="stat-item">
       <span class="stat-label">status</span>
       <span class="stat-value stat-teal">
-         open to work
+        <span class="stat-blink">▮</span> open to work
       </span>
     </div>
   </section>
@@ -156,6 +162,18 @@
         </span>
       </a>
       
+      <a class="recent-post-item" href="/blog/2025/12/01/dungeon-masters/">
+        <span class="rp-date">Dec 2025</span>
+        <span class="rp-title">dungeon masters</span>
+        <span class="rp-tags">
+          
+            <span class="rp-tag">unreal</span>
+          
+            <span class="rp-tag">cpp</span>
+          
+        </span>
+      </a>
+      
     </div>
   </section>
 
@@ -167,134 +185,40 @@
       <a href="/portfolio" class="home-section-more">all projects →</a>
     </div>
 
-    <div class="video-grid">
-      
-      
-        <div class="video-card" data-id="dQw4w9WgXcQ">
-          <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
-                 alt="placeholder project 01"
-                 loading="lazy"
-                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
-            <div class="play-overlay">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="video-meta">
-            <p class="video-title">placeholder project 01</p>
-            <p class="video-desc">brief description of this project and what makes it interesting.</p>
-          </div>
-        </div>
-      
-        <div class="video-card" data-id="dQw4w9WgXcQ">
-          <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
-                 alt="placeholder project 02"
-                 loading="lazy"
-                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
-            <div class="play-overlay">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="video-meta">
-            <p class="video-title">placeholder project 02</p>
-            <p class="video-desc">brief description of this project and what makes it interesting.</p>
-          </div>
-        </div>
-      
-        <div class="video-card" data-id="dQw4w9WgXcQ">
-          <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
-                 alt="placeholder project 03"
-                 loading="lazy"
-                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
-            <div class="play-overlay">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="video-meta">
-            <p class="video-title">placeholder project 03</p>
-            <p class="video-desc">brief description of this project and what makes it interesting.</p>
-          </div>
-        </div>
-      
-    </div>
+    
+    
 
     <div class="video-grid">
+
       
-        <div class="video-card" data-id="dQw4w9WgXcQ">
-          <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
-                 alt="placeholder project 04"
-                 loading="lazy"
-                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
-            <div class="play-overlay">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="video-meta">
-            <p class="video-title">placeholder project 04</p>
-            <p class="video-desc">brief description of this project and what makes it interesting.</p>
-          </div>
+      <div class="video-card" data-id="qLFXAQ3URxs">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/qLFXAQ3URxs/maxresdefault.jpg"
+               alt="Dungeon Masters" loading="lazy"
+               onerror="this.src='https://img.youtube.com/vi/qLFXAQ3URxs/hqdefault.jpg'">
+          <div class="play-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
-      
-        <div class="video-card" data-id="dQw4w9WgXcQ">
-          <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
-                 alt="placeholder project 05"
-                 loading="lazy"
-                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
-            <div class="play-overlay">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="video-meta">
-            <p class="video-title">placeholder project 05</p>
-            <p class="video-desc">brief description of this project and what makes it interesting.</p>
-          </div>
+        <div class="video-meta">
+          <a class="video-title-link" href="/blog/2025/12/01/dungeon-masters/">dungeon masters</a>
+          <p class="video-desc">a full dungeon runner game built in unreal engine 5 with procedural level gen...</p>
         </div>
+      </div>
       
-        <div class="video-card" data-id="dQw4w9WgXcQ">
-          <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
-                 alt="placeholder project 06"
-                 loading="lazy"
-                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
-            <div class="play-overlay">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="video-meta">
-            <p class="video-title">placeholder project 06</p>
-            <p class="video-desc">brief description of this project and what makes it interesting.</p>
-          </div>
-        </div>
+
       
+
     </div>
   </section>
 
-</div>
-
-<!-- ── video modal ───────────────────────────────────────────────────── -->
-<div id="video-modal" class="video-modal" style="display:none;" aria-modal="true" role="dialog">
-  <div class="modal-backdrop"></div>
-  <div class="modal-content">
-    <button class="modal-close" aria-label="close">&times;</button>
-    <div class="modal-frame">
-      <iframe id="modal-iframe" src="" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-    </div>
-  </div>
 </div>
 </main>
   <footer class="site-footer">
   <div class="container footer-inner">
     <p class="footer-copy">made with <span>♥</span> by batunii — 2026</p>
     <nav class="footer-links">
-      <a href="#">github</a>
-      <a href="#">linkedin</a>
-      <a href="mailto:hello@example.com">email</a>
+      <a href="https://github.com/batunii">github</a>
+      <a href="https://linkedin.com/in/batunii">linkedin</a>
+      <a href="mailto:sy.soni.edu@gmail.com">email</a>
     </nav>
   </div>
 </footer>
