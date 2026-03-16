@@ -1,24 +1,23 @@
 // ── colour palette ───────────────────────────────────────────────────────
 $bg:          #1e1e1e;
 $bg-raised:   #272727;
-$bg-card:     #2c2a33;     // purple-tinted card bg
+$bg-card:     #2c2a33;
 $border:      #3f3c4e;
 
-$accent-red:  #ff8c82;     // coral / salmon — primary accent
-$accent-pur:  #6b5d85;     // lifted purple (was #514669 — too dark)
-$accent-pur-light: #9b8ab4; // lighter purple for hover states
+$accent-red:       #ff8c82;
+$accent-pur:       #6b5d85;
+$accent-pur-light: #9b8ab4;
+$accent-glow:      rgba(255, 140, 130, 0.10);
 
-$accent-glow: rgba(255, 140, 130, 0.10);
-
-// ── text — much higher contrast than before ───────────────────────────
-$text-primary:   #f2eeeb;  // near white, warm tint
-$text-secondary: #c9c0d3;  // light lavender-grey — readable body text
-$text-muted:     #9e94ae;  // was #6b6478 — lifted significantly
+$text-primary:   #f2eeeb;
+$text-secondary: #c9c0d3;
+$text-muted:     #9e94ae;
 
 // ── typography ───────────────────────────────────────────────────────────
-$font-mono:  'JetBrains Mono', 'Iosevka', 'Fira Code', monospace;
-$font-body:  'JetBrains Mono', 'Iosevka', monospace;
+$font-mono: 'JetBrains Mono', 'Iosevka', 'Fira Code', monospace;
+$font-body: 'JetBrains Mono', 'Iosevka', monospace;
 
+// desktop sizes (your custom values)
 $size-xs:   0.875rem;
 $size-sm:   1rem;
 $size-base: 1.25rem;
@@ -27,13 +26,23 @@ $size-xl:   2.5rem;
 $size-2xl:  3.5rem;
 $size-3xl:  4.5rem;
 
+// mobile sizes — scaled down ~75-80%
+$size-xs-m:   0.7rem;
+$size-sm-m:   0.8rem;
+$size-base-m: 0.95rem;
+$size-lg-m:   1.15rem;
+$size-xl-m:   1.5rem;
+$size-2xl-m:  2rem;
+$size-3xl-m:  2.5rem;
+
 // ── spacing ───────────────────────────────────────────────────────────────
-$sp-1: 0.25rem;
-$sp-2: 0.5rem;
-$sp-3: 0.75rem;
-$sp-4: 1rem;
-$sp-6: 1.5rem;
-$sp-8: 2rem;
+$sp-1:  0.25rem;
+$sp-2:  0.5rem;
+$sp-3:  0.75rem;
+$sp-4:  1rem;
+$sp-5:  1.25rem;
+$sp-6:  1.5rem;
+$sp-8:  2rem;
 $sp-10: 2.5rem;
 $sp-12: 3rem;
 $sp-16: 4rem;
@@ -42,6 +51,4 @@ $sp-16: 4rem;
 $max-width: 1100px;
 $radius:    4px;
 $radius-lg: 8px;
-
-// ── transitions ───────────────────────────────────────────────────────────
 $transition: 0.2s ease;

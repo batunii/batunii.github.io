@@ -1,14 +1,42 @@
+// ── hamburger nav toggle ──────────────────────────────────────────────────
+(function () {
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  // close menu when a link is clicked
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+    });
+  });
+
+  // close on outside click
+  document.addEventListener('click', e => {
+    if (!toggle.contains(e.target) && !links.contains(e.target)) {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+    }
+  });
+})();
+
 // ── video modal ───────────────────────────────────────────────────────────
 (function () {
-  const modal = document.getElementById('video-modal');
+  const modal   = document.getElementById('video-modal');
   if (!modal) return;
-
-  const iframe = document.getElementById('modal-iframe');
+  const iframe  = document.getElementById('modal-iframe');
   const closeBtn = modal.querySelector('.modal-close');
   const backdrop = modal.querySelector('.modal-backdrop');
 
-  function openModal(videoId) {
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  function openModal(id) {
+    iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
@@ -19,9 +47,9 @@
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.video-card').forEach(card => {
-    card.addEventListener('click', () => openModal(card.dataset.id));
-  });
+  document.querySelectorAll('.video-card').forEach(c =>
+    c.addEventListener('click', () => openModal(c.dataset.id))
+  );
 
   closeBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', closeModal);
@@ -30,7 +58,7 @@
 
 // ── blog tag filter ───────────────────────────────────────────────────────
 (function () {
-  const tabs = document.querySelectorAll('.tag-tab');
+  const tabs  = document.querySelectorAll('.tag-tab');
   const posts = document.querySelectorAll('.post-item');
   if (!tabs.length) return;
 
@@ -38,11 +66,10 @@
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-
-      const selected = tab.dataset.tag;
+      const sel = tab.dataset.tag;
       posts.forEach(post => {
         const tags = post.dataset.tags ? post.dataset.tags.split(',') : [];
-        post.style.display = (selected === 'all' || tags.includes(selected)) ? '' : 'none';
+        post.style.display = (sel === 'all' || tags.includes(sel)) ? '' : 'none';
       });
     });
   });

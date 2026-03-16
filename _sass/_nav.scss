@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(34,34,34,0.92);
+  background: rgba(30,30,30,0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid $border;
   padding: $sp-4 0;
@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
   }
 
   .nav-logo {
@@ -20,10 +21,13 @@
     color: $text-primary;
     text-transform: lowercase;
     letter-spacing: -0.03em;
-
+    flex-shrink: 0;
     span { color: $accent-red; }
+
+    @media (max-width: 480px) { font-size: $size-lg-m; }
   }
 
+  // ── desktop nav links ──────────────────────────────────────────────
   .nav-links {
     display: flex;
     gap: $sp-8;
@@ -39,6 +43,7 @@
       letter-spacing: 0.02em;
       position: relative;
       padding-bottom: 2px;
+      transition: color $transition;
 
       &::after {
         content: '';
@@ -52,6 +57,74 @@
       &:hover, &.active {
         color: $text-primary;
         &::after { width: 100%; }
+      }
+    }
+
+    @media (max-width: 480px) {
+      a { font-size: $size-sm-m; }
+    }
+  }
+
+  // ── hamburger toggle (hidden on desktop) ───────────────────────────
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $sp-2;
+    z-index: 101;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: $text-secondary;
+      border-radius: 2px;
+      transition: all $transition;
+    }
+
+    &.open {
+      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+  }
+
+  // ── mobile menu ────────────────────────────────────────────────────
+  @media (max-width: 540px) {
+    .nav-toggle { display: flex; }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      position: absolute;
+      top: calc(100% + $sp-4);
+      right: 0;
+      background: $bg-card;
+      border: 1px solid $border;
+      border-radius: $radius-lg;
+      padding: $sp-4 0;
+      min-width: 160px;
+      z-index: 200;
+
+      &.open { display: flex; }
+
+      li { width: 100%; }
+
+      a {
+        display: block;
+        padding: $sp-3 $sp-6;
+        font-size: $size-sm-m;
+
+        &::after { display: none; }
+        &:hover, &.active {
+          color: $accent-red;
+          background: $accent-glow;
+        }
       }
     }
   }
