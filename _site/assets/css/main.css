@@ -235,6 +235,7 @@ blockquote {
   position: sticky;
   top: 0;
   z-index: 100;
+  overflow: visible;
   background: rgba(30, 30, 30, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #3f3c4e;
@@ -310,7 +311,7 @@ blockquote {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  z-index: 101;
+  z-index: 102;
 }
 .site-nav .nav-toggle span {
   display: block;
@@ -337,9 +338,9 @@ blockquote {
     display: none;
     flex-direction: column;
     gap: 0;
-    position: absolute;
-    top: calc(100% + 1rem);
-    right: 0;
+    position: fixed;
+    top: 60px;
+    right: 16px;
     background: #2c2a33;
     border: 1px solid #3f3c4e;
     border-radius: 8px;

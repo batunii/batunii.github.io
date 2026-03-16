@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  overflow: visible;
   background: rgba(30,30,30,0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid $border;
@@ -23,11 +24,9 @@
     letter-spacing: -0.03em;
     flex-shrink: 0;
     span { color: $accent-red; }
-
     @media (max-width: 480px) { font-size: $size-lg-m; }
   }
 
-  // ── desktop nav links ──────────────────────────────────────────────
   .nav-links {
     display: flex;
     gap: $sp-8;
@@ -65,7 +64,6 @@
     }
   }
 
-  // ── hamburger toggle (hidden on desktop) ───────────────────────────
   .nav-toggle {
     display: none;
     flex-direction: column;
@@ -75,7 +73,7 @@
     border: none;
     cursor: pointer;
     padding: $sp-2;
-    z-index: 101;
+    z-index: 102;
 
     span {
       display: block;
@@ -93,7 +91,6 @@
     }
   }
 
-  // ── mobile menu ────────────────────────────────────────────────────
   @media (max-width: 540px) {
     .nav-toggle { display: flex; }
 
@@ -101,9 +98,9 @@
       display: none;
       flex-direction: column;
       gap: 0;
-      position: absolute;
-      top: calc(100% + $sp-4);
-      right: 0;
+      position: fixed;
+      top: 60px;
+      right: 16px;
       background: $bg-card;
       border: 1px solid $border;
       border-radius: $radius-lg;
@@ -119,7 +116,6 @@
         display: block;
         padding: $sp-3 $sp-6;
         font-size: $size-sm-m;
-
         &::after { display: none; }
         &:hover, &.active {
           color: $accent-red;
