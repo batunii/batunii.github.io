@@ -1,0 +1,26 @@
+# Add your YouTube video IDs and metadata here.
+# The homepage will display 6 videos (2 rows of 3).
+
+- id: "dQw4w9WgXcQ"
+  title: "placeholder project 01"
+  description: "brief description of this project and what makes it interesting."
+
+- id: "dQw4w9WgXcQ"
+  title: "placeholder project 02"
+  description: "brief description of this project and what makes it interesting."
+
+- id: "dQw4w9WgXcQ"
+  title: "placeholder project 03"
+  description: "brief description of this project and what makes it interesting."
+
+- id: "dQw4w9WgXcQ"
+  title: "placeholder project 04"
+  description: "brief description of this project and what makes it interesting."
+
+- id: "dQw4w9WgXcQ"
+  title: "placeholder project 05"
+  description: "brief description of this project and what makes it interesting."
+
+- id: "dQw4w9WgXcQ"
+  title: "placeholder project 06"
+  description: "brief description of this project and what makes it interesting."

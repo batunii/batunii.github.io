@@ -1,0 +1,36 @@
+.site-footer {
+  border-top: 1px solid $border;
+  padding: $sp-8 0;
+  margin-top: auto;
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $sp-4;
+  }
+
+  .footer-copy {
+    font-family: $font-mono;
+    font-size: $size-xs;
+    color: $text-muted;
+    text-transform: lowercase;
+
+    span { color: $accent-red; }
+  }
+
+  .footer-links {
+    display: flex;
+    gap: $sp-6;
+
+    a {
+      font-family: $font-mono;
+      font-size: $size-xs;
+      color: $text-muted;
+      text-transform: lowercase;
+      transition: color $transition;
+      &:hover { color: $accent-red; }
+    }
+  }
+}

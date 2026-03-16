@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<div class="container">
+  <article class="post-single">
+    <header class="post-header">
+      <div class="post-header-tags">
+        {% for tag in page.tags %}
+          <a href="{{ '/blog/tag/' | append: tag | relative_url }}" class="tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      <h1>{{ page.title | downcase }}</h1>
+      <p class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        {% if page.author %} · {{ page.author }}{% endif %}
+        · {{ content | number_of_words }} words
+      </p>
+    </header>
+    <div class="post-body">
+      {{ content }}
+    </div>
+  </article>
+</div>

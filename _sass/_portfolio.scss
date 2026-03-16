@@ -1,0 +1,127 @@
+.portfolio-page {
+  padding: $sp-12 0 $sp-16;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $sp-6;
+}
+
+.portfolio-card {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: border-color $transition, transform $transition, box-shadow $transition;
+
+  &:hover {
+    border-color: $accent-pur-light;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(81,70,105,0.2);
+  }
+
+  .card-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: $bg-raised;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-muted;
+    font-family: $font-mono;
+    font-size: $size-xs;
+  }
+
+  .card-body {
+    padding: $sp-6;
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $sp-2;
+      margin-bottom: $sp-3;
+    }
+
+    .card-title {
+      font-size: $size-lg;
+      color: $text-primary;
+      margin-bottom: $sp-2;
+      text-transform: lowercase;
+      display: block;
+      transition: color $transition;
+
+      &:hover { color: $accent-red; }
+    }
+
+    .card-desc {
+      font-size: $size-sm;
+      color: $text-muted;
+      margin: 0;
+    }
+  }
+
+  .card-footer {
+    padding: $sp-3 $sp-6;
+    border-top: 1px solid $border;
+    display: flex;
+    gap: $sp-4;
+
+    a {
+      font-family: $font-mono;
+      font-size: $size-xs;
+      color: $text-muted;
+      text-transform: lowercase;
+      transition: color $transition;
+
+      &:hover { color: $accent-red; }
+    }
+  }
+}
+
+// ── portfolio single item ─────────────────────────────────────────────────
+.portfolio-single {
+  padding: $sp-12 0 $sp-16;
+  max-width: 860px;
+  margin: 0 auto;
+
+  .pf-header {
+    margin-bottom: $sp-8;
+    padding-bottom: $sp-8;
+    border-bottom: 1px solid $border;
+
+    .pf-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $sp-2;
+      margin-bottom: $sp-4;
+    }
+
+    h1 { margin-bottom: $sp-3; }
+
+    .pf-meta {
+      font-size: $size-sm;
+      color: $text-muted;
+      font-family: $font-mono;
+    }
+
+    .pf-links {
+      margin-top: $sp-4;
+      display: flex;
+      gap: $sp-3;
+    }
+  }
+
+  .pf-hero-img {
+    width: 100%;
+    border-radius: $radius-lg;
+    border: 1px solid $border;
+    margin-bottom: $sp-8;
+  }
+
+  .pf-body {
+    h2, h3 { margin-top: $sp-8; margin-bottom: $sp-4; }
+    p { margin-bottom: $sp-6; }
+  }
+}

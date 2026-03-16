@@ -1,0 +1,34 @@
+---
+layout: default
+title: portfolio
+---
+
+<div class="container portfolio-page">
+  <h2>portfolio</h2>
+  <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.875rem;">a selection of things i've built.</p>
+
+  <div class="portfolio-grid">
+    {% for item in site.portfolio %}
+    <article class="portfolio-card">
+      {% if item.image %}
+        <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" class="card-thumb">
+      {% else %}
+        <div class="card-thumb">[ {{ item.title | downcase }} ]</div>
+      {% endif %}
+      <div class="card-body">
+        <div class="card-tags">
+          {% for tag in item.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <a class="card-title" href="{{ item.url | relative_url }}">{{ item.title | downcase }}</a>
+        <p class="card-desc">{{ item.description }}</p>
+      </div>
+      <div class="card-footer">
+        {% if item.github %}<a href="{{ item.github }}">↗ source</a>{% endif %}
+        {% if item.demo %}<a href="{{ item.demo }}">↗ demo</a>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>

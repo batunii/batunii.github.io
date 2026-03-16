@@ -1,9 +1,46 @@
----
-layout: default
-title: home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>home — batunii</title>
+<meta name="description" content="personal portfolio and blog">
+<link rel="stylesheet" href="/assets/css/main.css">
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="batunii" />
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>home | batunii</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="home" />
+<meta name="author" content="batunii" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="personal portfolio and blog" />
+<meta property="og:description" content="personal portfolio and blog" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="batunii" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="home" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"batunii"},"description":"personal portfolio and blog","headline":"home","name":"batunii","url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
 
-<div class="container">
+
+</head>
+<body>
+  <nav class="site-nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="/">bat<span>.</span>unii</a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">home</a></li>
+      <li><a href="/about" >about me</a></li>
+      <li><a href="/portfolio" >portfolio</a></li>
+      <li><a href="/blog" >blog</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <main><div class="container">
 
   <!-- ── hero ─────────────────────────────────────────────────────── -->
   <section class="hero">
@@ -28,7 +65,7 @@ title: home
         <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
         email
       </a>
-      <a href="{{ '/about' | relative_url }}">
+      <a href="/about">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
         about me
       </a>
@@ -103,20 +140,22 @@ title: home
     <div class="home-section-header">
       <span class="home-section-label">recent writing</span>
       <div class="home-section-line"></div>
-      <a href="{{ '/blog' | relative_url }}" class="home-section-more">all posts →</a>
+      <a href="/blog" class="home-section-more">all posts →</a>
     </div>
     <div class="recent-posts">
-      {% for post in site.posts limit:3 %}
-      <a class="recent-post-item" href="{{ post.url | relative_url }}">
-        <span class="rp-date">{{ post.date | date: "%b %Y" }}</span>
-        <span class="rp-title">{{ post.title | downcase }}</span>
+      
+      <a class="recent-post-item" href="/blog/2026/03/01/opengl-shaders/">
+        <span class="rp-date">Mar 2026</span>
+        <span class="rp-title">getting started with opengl and glsl shaders</span>
         <span class="rp-tags">
-          {% for tag in post.tags limit:2 %}
-            <span class="rp-tag">{{ tag }}</span>
-          {% endfor %}
+          
+            <span class="rp-tag">graphics</span>
+          
+            <span class="rp-tag">opengl</span>
+          
         </span>
       </a>
-      {% endfor %}
+      
     </div>
   </section>
 
@@ -125,48 +164,112 @@ title: home
     <div class="home-section-header">
       <span class="home-section-label">projects</span>
       <div class="home-section-line"></div>
-      <a href="{{ '/portfolio' | relative_url }}" class="home-section-more">all projects →</a>
+      <a href="/portfolio" class="home-section-more">all projects →</a>
     </div>
 
     <div class="video-grid">
-      {% assign videos = site.data.videos %}
-      {% for video in videos limit:3 %}
-        <div class="video-card" data-id="{{ video.id }}">
+      
+      
+        <div class="video-card" data-id="dQw4w9WgXcQ">
           <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/{{ video.id }}/maxresdefault.jpg"
-                 alt="{{ video.title }}"
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                 alt="placeholder project 01"
                  loading="lazy"
-                 onerror="this.src='https://img.youtube.com/vi/{{ video.id }}/hqdefault.jpg'">
+                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
             <div class="play-overlay">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
           <div class="video-meta">
-            <p class="video-title">{{ video.title }}</p>
-            <p class="video-desc">{{ video.description }}</p>
+            <p class="video-title">placeholder project 01</p>
+            <p class="video-desc">brief description of this project and what makes it interesting.</p>
           </div>
         </div>
-      {% endfor %}
-    </div>
-
-    <div class="video-grid">
-      {% for video in videos limit:6 offset:3 %}
-        <div class="video-card" data-id="{{ video.id }}">
+      
+        <div class="video-card" data-id="dQw4w9WgXcQ">
           <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/{{ video.id }}/maxresdefault.jpg"
-                 alt="{{ video.title }}"
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                 alt="placeholder project 02"
                  loading="lazy"
-                 onerror="this.src='https://img.youtube.com/vi/{{ video.id }}/hqdefault.jpg'">
+                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
             <div class="play-overlay">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
           <div class="video-meta">
-            <p class="video-title">{{ video.title }}</p>
-            <p class="video-desc">{{ video.description }}</p>
+            <p class="video-title">placeholder project 02</p>
+            <p class="video-desc">brief description of this project and what makes it interesting.</p>
           </div>
         </div>
-      {% endfor %}
+      
+        <div class="video-card" data-id="dQw4w9WgXcQ">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                 alt="placeholder project 03"
+                 loading="lazy"
+                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
+            <div class="play-overlay">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">placeholder project 03</p>
+            <p class="video-desc">brief description of this project and what makes it interesting.</p>
+          </div>
+        </div>
+      
+    </div>
+
+    <div class="video-grid">
+      
+        <div class="video-card" data-id="dQw4w9WgXcQ">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                 alt="placeholder project 04"
+                 loading="lazy"
+                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
+            <div class="play-overlay">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">placeholder project 04</p>
+            <p class="video-desc">brief description of this project and what makes it interesting.</p>
+          </div>
+        </div>
+      
+        <div class="video-card" data-id="dQw4w9WgXcQ">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                 alt="placeholder project 05"
+                 loading="lazy"
+                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
+            <div class="play-overlay">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">placeholder project 05</p>
+            <p class="video-desc">brief description of this project and what makes it interesting.</p>
+          </div>
+        </div>
+      
+        <div class="video-card" data-id="dQw4w9WgXcQ">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                 alt="placeholder project 06"
+                 loading="lazy"
+                 onerror="this.src='https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'">
+            <div class="play-overlay">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">placeholder project 06</p>
+            <p class="video-desc">brief description of this project and what makes it interesting.</p>
+          </div>
+        </div>
+      
     </div>
   </section>
 
@@ -184,3 +287,18 @@ title: home
     </div>
   </div>
 </div>
+</main>
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-copy">made with <span>♥</span> by batunii — 2026</p>
+    <nav class="footer-links">
+      <a href="#">github</a>
+      <a href="#">linkedin</a>
+      <a href="mailto:hello@example.com">email</a>
+    </nav>
+  </div>
+</footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
