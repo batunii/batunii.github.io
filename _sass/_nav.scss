@@ -23,7 +23,14 @@
     text-transform: lowercase;
     letter-spacing: -0.03em;
     flex-shrink: 0;
-    span { color: $accent-red; }
+    span { color: $text-primary;}
+    span::after{
+	content: '';
+	display: block;
+	width: 25px;
+	height: 2px;
+	background: $accent-red;
+    }
     @media (max-width: 480px) { font-size: $size-lg-m; }
   }
 

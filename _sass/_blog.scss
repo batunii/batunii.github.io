@@ -50,7 +50,6 @@
     grid-template-columns: 1fr;
   }
 
-  &:hover .post-title { color: $accent-red; }
 
   .post-date {
     font-family: $font-mono;
@@ -79,6 +78,7 @@
       transition: color $transition;
       display: block;
     }
+  &:hover .post-title { color: $accent-red; }
 
     .post-excerpt {
       font-size: $size-sm;
@@ -125,7 +125,9 @@
   }
 
   .post-body {
-    h2, h3, h4 { margin-top: $sp-8; margin-bottom: $sp-4; }
+      h2, h3, h4 {
+	  font-size: clamp(1.5rem, 4vw, $size-xl);
+	  margin-top: $sp-8; margin-bottom: $sp-4; }
     p { margin-bottom: $sp-6; }
 
     .highlight {

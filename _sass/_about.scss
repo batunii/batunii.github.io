@@ -355,3 +355,84 @@
 @media (max-width: 480px) {
   .container { padding: 0 $sp-4; }
 }
+
+@media (max-width: 768px) {
+
+  // ── hero ───────────────────────────────────────────────────────────
+  .about-hero {
+    padding-top: $sp-8;
+
+    .about-eyebrow { font-size: $size-xs-m; }
+
+    h1 { font-size: $size-2xl-m; }
+
+    .about-bio { font-size: $size-sm-m; line-height: 1.75; }
+
+    .about-contact {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $sp-2;
+
+      .btn { font-size: $size-sm-m; padding: $sp-1 $sp-3; }
+    }
+  }
+
+  // ── section headings ───────────────────────────────────────────────
+  .about-section {
+    h2 {
+      font-size: $size-lg-m;
+      .section-prefix { font-size: $size-sm-m; }
+    }
+    h3 { font-size: $size-base-m; }
+    h4 { font-size: $size-sm-m; }
+  }
+
+  // ── timeline ───────────────────────────────────────────────────────
+  .timeline-item {
+    flex-direction: column;
+    gap: $sp-2;
+  }
+
+  .timeline-meta {
+    .tl-date { font-size: $size-xs-m; }
+    .tl-tag  { font-size: $size-xs-m; }
+  }
+
+  .timeline-body {
+    h3 { font-size: $size-base-m; }
+
+    .tl-location { font-size: $size-xs-m; }
+
+    li { font-size: $size-sm-m; }
+  }
+
+  // ── education ──────────────────────────────────────────────────────
+  .edu-grid { grid-template-columns: 1fr; }
+
+  .edu-card {
+    .edu-degree { font-size: $size-base-m; }
+    .edu-school { font-size: $size-sm-m; }
+    .edu-year   { font-size: $size-xs-m; }
+    .tag        { font-size: $size-xs-m; }
+  }
+
+  // ── skills ─────────────────────────────────────────────────────────
+  .skills-grid { grid-template-columns: 1fr; }
+
+  .skill-group {
+    h4 { font-size: $size-sm-m; }
+    .tag { font-size: $size-xs-m; }
+  }
+
+  // ── currently block ────────────────────────────────────────────────
+  .currently-block {
+    pre, code { font-size: $size-xs-m; }
+  }
+
+  // ── publications ───────────────────────────────────────────────────
+  .pub-item {
+    .pub-title { font-size: $size-sm-m; }
+    .pub-meta  { font-size: $size-xs-m; }
+  }
+
+}
