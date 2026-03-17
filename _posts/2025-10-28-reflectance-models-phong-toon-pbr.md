@@ -4,7 +4,7 @@ title: "reflectance models side by side: phong, toon, and pbr"
 date: 2025-10-28
 type: both
 tags: [opengl, shaders, lighting, pbr, glsl, cpp]
-youtube: 9Od7s2_FGBA
+youtube: 6tggWxzW754
 description: "building phong, toon, and cook-torrance pbr shaders side by side on the same mesh — and what each model actually gets right."
 ---
 

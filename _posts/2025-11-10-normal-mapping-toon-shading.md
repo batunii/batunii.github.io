@@ -4,7 +4,7 @@ title: "normal mapping and toon shading in opengl"
 date: 2025-11-10
 type: both
 tags: [opengl, shaders, normal-mapping, glsl, cpp]
-youtube: Wv2QE9VOoyk
+youtube: 9Od7s2_FGBA
 description: "adding surface detail without geometry — implementing normal maps in tangent space and mixing with a toon shader."
 ---
 
