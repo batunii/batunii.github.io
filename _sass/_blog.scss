@@ -124,16 +124,21 @@
     }
   }
 
-  .post-body {
-      h2, h3, h4 {
-	  font-size: clamp(1.5rem, 4vw, $size-xl);
-	  margin-top: $sp-8; margin-bottom: $sp-4; }
-    p { margin-bottom: $sp-6; }
+.post-body {
+  pre {
+    overflow-x: auto;
+    white-space: pre;
+    word-break: normal;
+    word-wrap: normal;
+    -webkit-overflow-scrolling: touch;
+    background: $bg-card;        // ← removes hljs background on pre
 
-    .highlight {
-      margin-bottom: $sp-6;
-      border-radius: $radius;
-      overflow: hidden;
+    code.hljs {
+      background: $bg-card;      // ← removes hljs background on code
+      padding: $sp-4 $sp-5;
+      white-space: pre;
+      display: block;
     }
   }
+}
 }

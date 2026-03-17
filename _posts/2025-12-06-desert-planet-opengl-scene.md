@@ -4,7 +4,7 @@ title: "desert planet: building a real-time 3d scene in opengl"
 date: 2025-12-06
 type: both
 tags: [opengl, particles, glsl, animation, cpp, graphics]
-youtube: 6tggWxzW754
+youtube: 6CFIXQ5L6bk
 description: "a full opengl 3.3 scene with gpu particles, hierarchical animation, ibl, and post-processing — the biggest graphics project i've shipped."
 ---
 

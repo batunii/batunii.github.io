@@ -2,9 +2,8 @@
 layout: post
 title: "aircraft animation: euler angles, quaternions, and gimbal lock"
 date: 2026-01-20
-type: both
+type: blog
 tags: [opengl, animation, quaternions, glsl, cpp, graphics]
-youtube: -Hvq9oIhfL0
 description: "implementing aircraft pitch/yaw/roll with euler angles, hitting gimbal lock, and fixing it with quaternions — plus keyframed animation with slerp."
 ---
 
