@@ -3,16 +3,19 @@
   const toggle = document.getElementById('nav-toggle');
   const links  = document.getElementById('nav-links');
   if (!toggle || !links) return;
+
   toggle.addEventListener('click', () => {
     const open = links.classList.toggle('open');
     toggle.classList.toggle('open', open);
   });
+
   links.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => {
       links.classList.remove('open');
       toggle.classList.remove('open');
     })
   );
+
   document.addEventListener('click', e => {
     if (!toggle.contains(e.target) && !links.contains(e.target)) {
       links.classList.remove('open');
@@ -30,13 +33,11 @@
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;
     iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
-    // clear thumb, drop iframe in
     container.innerHTML = '';
     container.appendChild(iframe);
   }
 
-  // ── homepage / blog video grid ──────────────────────────────────────
-  // clicking the thumb area swaps it for an iframe
+  // homepage / blog video grid
   document.querySelectorAll('.video-card .video-thumb').forEach(thumb => {
     thumb.addEventListener('click', () => {
       const id = thumb.closest('.video-card').dataset.id;
@@ -44,8 +45,7 @@
     });
   });
 
-  // ── portfolio card play button ──────────────────────────────────────
-  // small circle btn — swaps the card-thumb-wrap for an iframe
+  // portfolio card play button
   document.querySelectorAll('.card-play-btn').forEach(btn => {
     btn.addEventListener('click', e => {
       e.stopPropagation();
@@ -55,8 +55,7 @@
     });
   });
 
-  // ── post / project page inline embed ───────────────────────────────
-  // clicking the big thumbnail on the post page plays in place
+  // post / project page inline embed
   document.querySelectorAll('.post-video-embed').forEach(embed => {
     embed.addEventListener('click', () => {
       const thumb = embed.querySelector('.pve-thumb');
@@ -64,8 +63,7 @@
     });
   });
 
-  // ── project banner "▶ watch demo" button ───────────────────────────
-  // scrolls to the embed on the page and plays it
+  // project banner "▶ watch demo" button
   document.querySelectorAll('.pb-play').forEach(btn => {
     btn.addEventListener('click', () => {
       const embed = document.querySelector('.post-video-embed');
@@ -76,18 +74,24 @@
       }
     });
   });
-
 })();
 
-// ── blog tag filter ───────────────────────────────────────────────────────
+// ── blog tag filter + more/less toggle ───────────────────────────────────
 (function () {
-  const tabs  = document.querySelectorAll('.tag-tab');
-  const posts = document.querySelectorAll('.post-item');
+  const tabs    = document.querySelectorAll('.tag-tab');
+  const posts   = document.querySelectorAll('.post-item');
+  const moreBtn = document.getElementById('tag-more-btn');
+
   if (!tabs.length) return;
+
+  // tag filter
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
+      if (tab.id === 'tag-more-btn') return;   // ignore the more button
+
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
+
       const sel = tab.dataset.tag;
       posts.forEach(post => {
         const tags = post.dataset.tags ? post.dataset.tags.split(',') : [];
@@ -95,4 +99,17 @@
       });
     });
   });
+
+  // more / less toggle
+  if (moreBtn) {
+    let expanded = false;
+    const hiddenTabs = document.querySelectorAll('.tag-tab-hidden');
+
+    moreBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      expanded = !expanded;
+      hiddenTabs.forEach(tab => tab.style.display = expanded ? 'inline-flex' : 'none');
+      moreBtn.textContent = expanded ? 'less ↑' : 'more ↓';
+    });
+  }
 })();

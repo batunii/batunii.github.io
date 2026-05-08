@@ -7,13 +7,41 @@ title: blog
   <h2>blog</h2>
 
   <!-- tag filter tabs -->
-  <div class="tag-tabs" id="tag-tabs">
-    <button class="tag-tab active" data-tag="all">all</button>
-    {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
-    {% for tag in all_tags %}
-      <button class="tag-tab" data-tag="{{ tag | strip }}">{{ tag | strip }}</button>
+<div class="tag-tabs" id="tag-tabs">
+  <button class="tag-tab active" data-tag="all">all</button>
+
+  {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+
+  {% comment %} Count frequency of each tag {% endcomment %}
+  {% assign tag_counts = "" %}
+  {% for tag in all_tags %}
+    {% assign tag_clean = tag | strip %}
+    {% assign count = 0 %}
+    {% for post in site.posts %}
+      {% if post.tags contains tag_clean %}
+        {% assign count = count | plus: 1 %}
+      {% endif %}
     {% endfor %}
-  </div>
+    {% assign tag_counts = tag_counts | append: count | append: ":" | append: tag_clean | append: "," %}
+  {% endfor %}
+
+  {% assign sorted_tags = tag_counts | split: "," | sort | reverse %}
+
+  {% assign visible_count = 0 %}
+  {% for entry in sorted_tags %}
+    {% if entry == "" %}{% continue %}{% endif %}
+    {% assign parts = entry | split: ":" %}
+    {% assign tag_name = parts | last %}
+    {% if visible_count < 6 %}
+      <button class="tag-tab" data-tag="{{ tag_name }}">{{ tag_name }}</button>
+      {% assign visible_count = visible_count | plus: 1 %}
+    {% else %}
+      <button class="tag-tab tag-tab-hidden" data-tag="{{ tag_name }}" style="display:none">{{ tag_name }}</button>
+    {% endif %}
+  {% endfor %}
+
+  <button class="tag-tab tag-tab-more" id="tag-more-btn">more ↓</button>
+</div>
 
   <!-- post list -->
   <div class="post-list" id="post-list">
