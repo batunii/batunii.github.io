@@ -199,6 +199,22 @@
 
   .home-section-line { flex: 1; height: 1px; background: $border; }
 
+  .home-section-more-block {
+    padding: $sp-2;
+    margin-left: $sp-2;
+    color: $text-secondary;
+    border: 1px solid $border;
+    font-family: $font-mono;
+    font-size: $size-sm;
+    text-transform: lowercase;
+    letter-spacing: 0.10em;
+    color: $text-muted;
+    white-space: nowrap;
+    transition: color $transition;
+    &:hover { color: $accent-red; }
+
+    @media (max-width: 768px) { font-size: $size-xs-m; }
+  }
   .home-section-more {
     font-family: $font-mono;
     font-size: $size-xs;
